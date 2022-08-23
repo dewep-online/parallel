@@ -1,0 +1,4 @@
+github.com/deweppro/go-app v1.6.0 h1:CjPrGH4wHkZryJdDXkArxyt35sVAfM3amKMhYPIcn8I=
+github.com/deweppro/go-app v1.6.0/go.mod h1:rZ95OfFGvRnm5ndIJI+DOtoOuVrgy3NeQ2vwmbmi0Tk=
+github.com/deweppro/go-errors v0.0.4 h1:TW91LRqHAkUauDJ5lzz73LziANH7mjli1tyvtwzXRCM=
+github.com/deweppro/go-errors v0.0.4/go.mod h1:BLsNcxaHh1fjNl/o1TB69JwA8XueSk/Nszkvw4ZwI/I=

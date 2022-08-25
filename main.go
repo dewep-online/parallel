@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"context"
 	"fmt"
+	"os"
 	"os/exec"
 	"sync"
 	"time"
@@ -49,6 +50,8 @@ func RunApp() console.CommandGetter {
 
 func execContext(ctx context.Context, shell string, i int, command string) error {
 	cmd := exec.CommandContext(ctx, shell, "-c", command)
+	cmd.Env = os.Environ()
+	cmd.Dir = pwd()
 	stdout, err := cmd.StdoutPipe()
 	console.FatalIfErr(err, "stdout init")
 	defer stdout.Close()
@@ -83,4 +86,10 @@ func reTry(ctx context.Context, call func() error, exit bool, timeout int64) {
 
 func log(i int, cmd, message string) {
 	fmt.Printf("\u001B[%dm[%s]\t%s\n\u001B[0m", i+31, cmd, message)
+}
+
+func pwd() string {
+	dir, err := os.Getwd()
+	console.FatalIfErr(err, "get current dir")
+	return dir
 }
